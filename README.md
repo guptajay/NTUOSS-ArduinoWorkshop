@@ -1,5 +1,9 @@
 # NTUOSS Arduino Workshop
 > By [Jay Gupta](https://github.com/guptajay) for [NTU Open Source Society](https://github.com/ntuoss)
+  
+
+![Arduino](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Arduino_Logo.svg/640px-Arduino_Logo.svg.png)
+  
 
 This workshop is based on Arduino Uno and assumes elementary knowledge of C Programming.
 
@@ -18,4 +22,13 @@ If you find any mistake (typo or anything else), please make a pull request or p
 ***
 
 
+### Foundations
 
+A microcontroller is a computer system on a chip that does a job. It contains an integrated processor, memory (a small amount of RAM, program memory, or both), and programmable input/output peripherals, which are used to interact with things connected to the chip. A microcontroller is different than a microprocessor, which only contains a CPU.
+
+Arduino is an open-source electronics platform based on easy-to-use hardware and software. 
+
+Arduino boards are able to read inputs - light on a sensor, a finger on a button, or a Twitter message - and turn it into an output - activating a motor, turning on an LED, publishing something online. You can tell your board what to do by sending a set of instructions to the microcontroller on the board.
+
+![Arduino Uno](https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg)
+> **We are going to use Arduino Uno for this Workshop**
