@@ -1,8 +1,8 @@
-// Hot Temperature (in Farenheit)
-const int hot = 87; 
+// Hot Temperature (in Celsius)
+const int hot = 35; 
 
-// Cold Temperature (in Farenheit)
-const int cold = 75;
+// Cold Temperature (in Celsius)
+const int cold = 20;
 
 void setup() {
   
@@ -22,12 +22,10 @@ void loop() {
   float voltage = (sensor / 1024.0) * 5.0;
   float tempC = (voltage - .5) * 100;
   
-  // Farenheit to Celcius Conversion
-  float tempF = (tempC * 1.8) + 32;
-  Serial.print("temp: ");
-  Serial.print(tempF);
+  Serial.print("Temperature Detected: ");
+  Serial.println(tempC);
   
-  if (tempF < cold) {
+  if (tempC < cold) {
     // It is Cold
     digitalWrite(2, HIGH); // Blue LED On
     digitalWrite(3, LOW); // Green LED Off
@@ -35,7 +33,7 @@ void loop() {
     Serial.println(" It is Cold");
   }
   
-  else if (tempF >= hot) {
+  else if (tempC >= hot) {
     // It is Hot
     digitalWrite(2, LOW); // Blue LED Off
     digitalWrite(3, LOW); // Green LED Off
@@ -50,6 +48,6 @@ void loop() {
     Serial.println(" It is Fine.");
   }
   
-  delay(100);
+  delay(1000);
   
 }
