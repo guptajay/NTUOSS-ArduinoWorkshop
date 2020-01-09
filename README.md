@@ -11,7 +11,7 @@ This workshop is based on Arduino Uno and assumes elementary knowledge of C Prog
 > It does not cover all the concepts or implementation details discussed during the actual workshop.
 
 ### Workshop Details
-**When:** Friday, 18 Sep 2015. 6:30 PM - 8:30 PM   
+**When:** Friday, 14 Feb 2020. 6:30 PM - 8:30 PM   
 **Where:** LHN-TR+17, The Arc - Learning Hub North (LHN), Nanyang Technological University   
 **Who:** NTU Open Source Society   
 
@@ -32,3 +32,23 @@ Arduino boards are able to read inputs - light on a sensor, a finger on a button
 
 ![Arduino Uno](https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg)
 > **We are going to use Arduino Uno for this Workshop**
+
+### Arduino Board Structure
+
+![Arduino Uno Board](img/Arduino_Uno_Board.png)
+
+* **Vin, 5V, 3.5V, GND** -  To provide power and ground the circuit.  
+* **Reset** - Resets the microcontroller.  
+* **Analog Pins (A0-A5)** - Receive Analog Input (0 - 5V).  
+* **Digital Pins (0-13)** - Receive and Transmit Digital Data.  
+* **Rx(0), Tx(1)** - Receive and Transmit Serial Data.  
+* **Interrupt Pins (2, 3)** - Trigger an external Interrupt.  
+* **PWM Pins (3, 5, 6, 9, 10, 11)** - Provide PWN Output. PWM is a technique to get analog results with digital means.  
+* **SPI Pins (10, 11, 12, 13)** - Used for SPI Communication.  
+* **InBuilt LED (13)** - Trigger the in-built LED.  
+
+
+***
+
+
+### References
