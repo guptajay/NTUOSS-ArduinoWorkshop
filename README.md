@@ -11,7 +11,7 @@ This workshop is based on Arduino Uno and assumes elementary knowledge of C Prog
 > It does not cover all the concepts or implementation details discussed during the actual workshop.
 
 ### Workshop Details
-**When:** Friday, 18 Sep 2015. 6:30 PM - 8:30 PM   
+**When:** Friday, 14 Feb 2020. 6:30 PM - 8:30 PM   
 **Where:** LHN-TR+17, The Arc - Learning Hub North (LHN), Nanyang Technological University   
 **Who:** NTU Open Source Society   
 
@@ -32,3 +32,129 @@ Arduino boards are able to read inputs - light on a sensor, a finger on a button
 
 ![Arduino Uno](https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg)
 > **We are going to use Arduino Uno for this Workshop**
+
+### Arduino Board Structure
+
+![Arduino Uno Board](img/Arduino_Uno_Board.png)
+
+* **Vin, 5V, 3.5V, GND** -  To provide power and ground the circuit.  
+* **Reset** - Resets the microcontroller.  
+* **Analog Pins (A0-A5)** - Receive Analog Input (0 - 5V).  
+* **Digital Pins (0-13)** - Receive and Transmit Digital Data.  
+* **Rx(0), Tx(1)** - Receive and Transmit Serial Data.  
+* **Interrupt Pins (2, 3)** - Trigger an external Interrupt.  
+* **PWM Pins (3, 5, 6, 9, 10, 11)** - Provide PWN Output. PWM is a technique to get analog results with digital means.  
+* **SPI Pins (10, 11, 12, 13)** - Used for SPI Communication.  
+* **InBuilt LED (13)** - Trigger the in-built LED.  
+
+### Arduino Code Structure 
+> Arduino code is written in C with an addition of special methods and functions.
+
+```C
+// Declare Global Variables 
+
+// Set-Up the Arduino Board (Specify PINs to use as I/O) - PREPERATION BLOCK
+void setup()
+{
+  // Code
+}
+
+// Main Program - EXECUTION BLOCK
+void loop()
+{
+  // Code
+}
+```
+
+### Task 1 - In-Built LED Blinker Circuit
+
+```C
+// Internal LED Blinker Circuit
+
+int ledPin = 13;
+
+void setup()
+{
+   // initialize pins as OUTPUT
+   pinMode(ledPin, OUTPUT);
+}
+
+void loop()
+{
+  // Blink the LED
+  digitalWrite(ledPin, HIGH);
+  delay(1000);
+  digitalWrite(ledPin, LOW);
+  delay(1000);
+}
+```
+
+### Task 2 - Intelligent ThermoStat
+
+![Circuit Diagram](img/Smart_Thermostat.png)
+
+```C
+// Intelligent ThermoStat
+
+// Hot Temperature (in Farenheit)
+const int hot = 87; 
+
+// Cold Temperature (in Farenheit)
+const int cold = 75;
+
+void setup() {
+  
+  pinMode(A2, INPUT); // Temperature Sensor
+  pinMode(2, OUTPUT); // Blue LED - Indicate Cold
+  pinMode(3, OUTPUT); // Green LED - Indicate Neutral
+  pinMode(4, OUTPUT); // Red LED - Indicate Hot
+  Serial.begin(9600);
+  
+}
+
+void loop() {
+  
+  int sensor = analogRead(A2);
+  
+  // Voltage Conversion
+  float voltage = (sensor / 1024.0) * 5.0;
+  float tempC = (voltage - .5) * 100;
+  
+  // Farenheit to Celcius Conversion
+  float tempF = (tempC * 1.8) + 32;
+  Serial.print("temp: ");
+  Serial.print(tempF);
+  
+  if (tempF < cold) {
+    // It is Cold
+    digitalWrite(2, HIGH); // Blue LED On
+    digitalWrite(3, LOW); // Green LED Off
+    digitalWrite(4, LOW); // Red LED Off
+    Serial.println(" It is Cold");
+  }
+  
+  else if (tempF >= hot) {
+    // It is Hot
+    digitalWrite(2, LOW); // Blue LED Off
+    digitalWrite(3, LOW); // Green LED Off
+    digitalWrite(4, HIGH); // Red LED On
+    Serial.println(" It is Hot.");
+  }
+  else { 
+    // It is Neutral
+    digitalWrite(2, LOW); // Blue LED Off
+    digitalWrite(3, HIGH); // Green LED On
+    digitalWrite(4, LOW); // Red LED Off
+    Serial.println(" It is Fine.");
+  }
+  
+  delay(100);
+  
+}
+```
+
+### Task 3 - Measuring Speed of Sound using a UltraSonic Sensor
+***
+
+
+### References
