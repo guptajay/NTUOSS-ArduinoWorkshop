@@ -152,7 +152,76 @@ void loop() {
 ```
 
 ### Task 3 - Measuring Speed of Sound using a UltraSonic Sensor
+
+![Measuring Speed of Sound using a UltraSonic Sensor](img/Speed_Of_Sound.png)
+
+```C
+// Measuring the Speed of Sound
+
+// Ultrasonic Sensor PIN Configuration
+int trigPin = 13;
+int echoPin = 11;
+
+// Measuring Ping Time
+float pingTime;
+
+float speedOfSound;
+
+// Object Distance from Ultrasonic Sensor (in Inches)
+float targetDistance = 6;
+
+void setup()
+{
+  
+  Serial.begin(9600);
+  
+  // Ultrasonic Sensor PIN Configuration
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  
+}
+
+void loop()
+{
+  
+  // Generate a Pulse
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2000); 
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10); 
+  digitalWrite(trigPin, LOW);
+  
+  // Measure Ping Time
+  pingTime = pulseIn(echoPin, HIGH);
+  
+  // Calculating Speed of Sound
+  speedOfSound = 2 * targetDistance / pingTime;
+  speedOfSound = speedOfSound / 63360 * 1000000 * 3600;
+  speedOfSound = speedOfSound * 0.44;
+  
+  Serial.print("The speed of sound is ");
+  Serial.print(speedOfSound);
+  Serial.println(" m/s");
+  
+  delay(3000);
+  
+}
+```
+### Moving Forward
+Congratualations on completing the very basics of Arduino!
+
+We have barely scratched the surface. The Arduino world is vast and there is a lot more that we can learn from tons of sensors such as Wi-Fi. Bluetooth, Cameras & GPS to advanced Motor & Servo control. 
+
+##### Fingerprint Authenticator
+![Fingerprint Authenticator](img/Future_Proj_1.png)
+
+##### Whiskey Dispensor
+![Whiskey Dispensor](img/Future_Proj_2.png)
+
 ***
 
 
 ### References
+
+> * https://simple.wikipedia.org/wiki/Microcontroller
+> * https://www.arduino.cc/en/Guide/Introduction
