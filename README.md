@@ -208,15 +208,17 @@ void loop()
 }
 ```
 ### Moving Forward
-Congratualations on completing the very basics of Arduino!
+**Congratualations on completing the very basics of Arduino!**
 
 We have barely scratched the surface. The Arduino world is vast and there is a lot more that we can learn from tons of sensors such as Wi-Fi. Bluetooth, Cameras & GPS to advanced Motor & Servo control. 
 
 ##### Fingerprint Authenticator
-![Fingerprint Authenticator](img/Future_Proj_1.png)
+
+![Fingerprint Authenticator](img/Future_Proj_1.jpg)
 
 ##### Whiskey Dispensor
-![Whiskey Dispensor](img/Future_Proj_2.png)
+
+![Whiskey Dispensor](img/Future_Proj_2.jpg)
 
 ***
 
