@@ -96,11 +96,11 @@ void loop()
 ```C
 // Intelligent ThermoStat
 
-// Hot Temperature (in Farenheit)
-const int hot = 87; 
+// Hot Temperature (in Celsius)
+const int hot = 35; 
 
-// Cold Temperature (in Farenheit)
-const int cold = 75;
+// Cold Temperature (in Celsius)
+const int cold = 20;
 
 void setup() {
   
@@ -120,41 +120,108 @@ void loop() {
   float voltage = (sensor / 1024.0) * 5.0;
   float tempC = (voltage - .5) * 100;
   
-  // Farenheit to Celcius Conversion
-  float tempF = (tempC * 1.8) + 32;
-  Serial.print("temp: ");
-  Serial.print(tempF);
+  Serial.print("Temperature Detected: ");
+  Serial.println(tempC);
   
-  if (tempF < cold) {
+  if (tempC < cold) {
     // It is Cold
     digitalWrite(2, HIGH); // Blue LED On
     digitalWrite(3, LOW); // Green LED Off
     digitalWrite(4, LOW); // Red LED Off
-    Serial.println(" It is Cold");
+    Serial.println("It is Cold");
   }
   
-  else if (tempF >= hot) {
+  else if (tempC >= hot) {
     // It is Hot
     digitalWrite(2, LOW); // Blue LED Off
     digitalWrite(3, LOW); // Green LED Off
     digitalWrite(4, HIGH); // Red LED On
-    Serial.println(" It is Hot.");
+    Serial.println("It is Hot.");
   }
   else { 
     // It is Neutral
     digitalWrite(2, LOW); // Blue LED Off
     digitalWrite(3, HIGH); // Green LED On
     digitalWrite(4, LOW); // Red LED Off
-    Serial.println(" It is Fine.");
+    Serial.println("It is Fine.");
   }
   
-  delay(100);
+  delay(1000);
   
 }
 ```
 
 ### Task 3 - Measuring Speed of Sound using a UltraSonic Sensor
+
+![Measuring Speed of Sound using a UltraSonic Sensor](img/Speed_Of_Sound.png)
+
+```C
+// Measuring the Speed of Sound
+
+// Ultrasonic Sensor PIN Configuration
+int trigPin = 13;
+int echoPin = 11;
+
+// Measuring Ping Time
+float pingTime;
+
+float speedOfSound;
+
+// Object Distance from Ultrasonic Sensor (in Inches)
+float targetDistance = 6;
+
+void setup()
+{
+  
+  Serial.begin(9600);
+  
+  // Ultrasonic Sensor PIN Configuration
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  
+}
+
+void loop()
+{
+  
+  // Generate a Pulse
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2000); 
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10); 
+  digitalWrite(trigPin, LOW);
+  
+  // Measure Ping Time
+  pingTime = pulseIn(echoPin, HIGH);
+  
+  // Calculating Speed of Sound
+  speedOfSound = 2 * targetDistance / pingTime;
+  speedOfSound = speedOfSound / 63360 * 1000000 * 3600;
+  speedOfSound = speedOfSound * 0.44;
+  
+  Serial.print("The speed of sound is ");
+  Serial.print(speedOfSound);
+  Serial.println(" m/s");
+  
+  delay(3000);
+  
+}
+```
+### Moving Forward
+Congratualations on completing the very basics of Arduino!
+
+We have barely scratched the surface. The Arduino world is vast and there is a lot more that we can learn from tons of sensors such as Wi-Fi. Bluetooth, Cameras & GPS to advanced Motor & Servo control. 
+
+##### Fingerprint Authenticator
+![Fingerprint Authenticator](img/Future_Proj_1.png)
+
+##### Whiskey Dispensor
+![Whiskey Dispensor](img/Future_Proj_2.png)
+
 ***
 
 
 ### References
+
+> * https://simple.wikipedia.org/wiki/Microcontroller
+> * https://www.arduino.cc/en/Guide/Introduction
