@@ -5,7 +5,7 @@
 ![Arduino](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Arduino_Logo.svg/640px-Arduino_Logo.svg.png)
   
 
-This workshop is based on Arduino Uno and assumes elementary knowledge of C Programming.
+This workshop is based on Arduino Uno and assumes elementary knowledge of C++ Programming.
 
 > **Disclaimer** - This document is only meant to serve as a reference for the attendees of the workshop.
 > It does not cover all the concepts or implementation details discussed during the actual workshop.
@@ -48,7 +48,7 @@ Arduino boards are able to read inputs - light on a sensor, a finger on a button
 * **InBuilt LED (13)** - Trigger the in-built LED.  
 
 ### Arduino Code Structure 
-> Arduino code is written in C with an addition of special methods and functions.
+> Arduino code is written in C++ with an addition of special methods and functions.
 
 ```C
 // Declare Global Variables 
