@@ -11,8 +11,8 @@ This workshop is based on Arduino Uno and assumes elementary knowledge of C++ Pr
 > It does not cover all the concepts or implementation details discussed during the actual workshop.
 
 ### Workshop Details
-**When:** Friday, 14 Feb 2020. 6:30 PM - 8:30 PM   
-**Where:** LHN-TR+17, The Arc - Learning Hub North (LHN), Nanyang Technological University   
+**When:** Friday, 27 Mar 2020. 6:30 PM - 8:30 PM   
+**Where:** LHN-TR+19, The Arc - Learning Hub North (LHN), Nanyang Technological University   
 **Who:** NTU Open Source Society   
 
 ### Errors
